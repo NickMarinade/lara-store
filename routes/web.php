@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
-        'listings' => [
-            [
-                'id' => 1,
-                'title' => 'Listing One',
-                'description' => 'fggfhfghfghfghfghdfghdfghfdghdfg'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Listing Two',
-                'description' => 'fggfhfghfghfghfghdfghdfghfdghdfg'
-            ]
-        ]
+        'listings' => Listing::all()
     ]);
-});
+})->name('home');
+
+Route::get('listings/{id}/{slug}', function ($id) {
+    $listing = Listing::find($id);
+    $slug = Str::slug($listing->title);
+
+    return view('listing', ['listing' => $listing, 'slug' => $slug]);
+})->name('listing');
