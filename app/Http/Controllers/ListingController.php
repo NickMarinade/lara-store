@@ -11,9 +11,9 @@ class ListingController extends Controller
 {
     public function showAll() {
         
-        return view('listings', [
-            'heading' => 'Latest Listings',
-            'listings' => Listing::all()
+        return view('listings.showAll', [
+    
+            'listings' => Listing::latest()->filter(request(['tag']))->get()
         ]);
     }
 
@@ -21,7 +21,7 @@ class ListingController extends Controller
         
         $slug = Str::slug($listing->title);
         
-        return view('listing', ['listing' => $listing, 'slug' => $slug]);
+        return view('listings.showOne', ['listing' => $listing, 'slug' => $slug]);
 
     }
 }

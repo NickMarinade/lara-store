@@ -17,5 +17,4 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', [ListingController::class, 'showAll'])->name('home');
-
 Route::get('listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
