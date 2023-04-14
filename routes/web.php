@@ -22,8 +22,7 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('listings/{id}/{slug}', function ($id) {
-    $listing = Listing::find($id);
+Route::get('listings/{listing}/{slug}', function (Listing $listing) {
     $slug = Str::slug($listing->title);
 
     return view('listing', ['listing' => $listing, 'slug' => $slug]);
