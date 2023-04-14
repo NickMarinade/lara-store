@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -15,15 +16,6 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-})->name('home');
+Route::get('/', [ListingController::class, 'showAll'])->name('home');
 
-Route::get('listings/{listing}/{slug}', function (Listing $listing) {
-    $slug = Str::slug($listing->title);
-
-    return view('listing', ['listing' => $listing, 'slug' => $slug]);
-})->name('listing');
+Route::get('listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
