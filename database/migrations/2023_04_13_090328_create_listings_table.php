@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tags');
             $table->string('trailer');
             $table->string('website');
+            $table->string('logo')->nullable();
             $table->longText('description');
             $table->timestamps();
         });

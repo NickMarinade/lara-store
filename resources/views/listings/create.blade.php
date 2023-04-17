@@ -8,7 +8,7 @@
             </h2>
         </header>
 
-        <form method="POST" action="/listings">
+        <form method="POST" action="/listings" enctype="multipart/form-data" >
             @csrf
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Title</label>
@@ -48,7 +48,7 @@
                 @enderror
             </div>
 
-            {{-- <div class="mb-6">
+            <div class="mb-6">
                 <label for="logo" class="inline-block text-lg mb-2">
                     Logo
                 </label>
@@ -56,7 +56,7 @@
                 @error('logo')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                 @enderror
-            </div> --}}
+            </div>
 
             <div class="mb-6">
                 <label for="description" class="inline-block text-lg mb-2">
