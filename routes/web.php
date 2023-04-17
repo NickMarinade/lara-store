@@ -18,5 +18,8 @@ use Illuminate\Support\Str;
 
 Route::get('/', [ListingController::class, 'showAll'])->name('home');
 Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
+
 Route::get('/listings/create', [ListingController::class, 'create'])->name('create-listing');
 Route::post('/listings', [ListingController::class, 'store'])->name('store-listing');
+
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->name('edit-listing');
