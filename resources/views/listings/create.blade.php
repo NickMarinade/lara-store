@@ -12,7 +12,7 @@
             @csrf
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Title</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title" value="{{old('title')}}" />
 
                 @error('title')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -21,7 +21,7 @@
 
             <div class="mb-6">
                 <label for="trailer" class="inline-block text-lg mb-2">Trailer (Link)</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="trailer" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="trailer" value="{{old('trailer')}}" />
                 @error('trailer')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
@@ -31,7 +31,7 @@
                 <label for="website" class="inline-block text-lg mb-2">
                     Info Website (Link)
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" />
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" value="{{old('website')}}" />
                 @error('website')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
@@ -41,7 +41,7 @@
                 <label for="tags" class="inline-block text-lg mb-2">
                     Tags (Comma Separated)
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags" value="{{old('tags')}}"
                     placeholder="Example: Drama, Action, Detective, etc" />
                 @error('tags')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
