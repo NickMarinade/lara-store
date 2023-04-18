@@ -22,5 +22,6 @@ Route::get('/listings/create', [ListingController::class, 'create'])->name('crea
 Route::post('/listings', [ListingController::class, 'store'])->name('store-listing');
 
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->name('edit-listing');
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->name('update-listing');
 
 Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
