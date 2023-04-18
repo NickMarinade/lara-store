@@ -19,16 +19,16 @@
                     <h3 class="text-3xl font-bold mb-4">
                         Description
                     </h3>
-                    <div class="text-lg space-y-6">
+                    <div class="text-lg space-y-6 flex flex-col items-center">
                         <p>{{ $listing->description }}</p>
 
                         <a href="{{ $listing->trailer }}" target="_blank"
-                            class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80"><i
+                            class="block bg-red-600 text-white py-2 rounded-xl hover:opacity-80 w-64"><i
                                 class="fab fa-youtube"></i> Watch Trailer
                         </a>
 
                         <a href="{{ $listing->website }}" target="_blank"
-                            class="block bg-black text-white py-2 rounded-xl hover:opacity-80"><i
+                            class="block bg-black text-white py-2 rounded-xl hover:opacity-80 w-64"><i
                                 class="fa-solid fa-globe"></i> Visit
                             Website
                         </a>
@@ -38,9 +38,15 @@
         </x-card>
 
         <x-card class="mt-4 p-2 flex space-x-6 items-center justify-center text-center">
-            <a href="/listings/{{$listing->id}}/edit">
+            <a href="/listings/{{$listing->id}}/edit/{{$listing->slug}}">
                 <i class="fa-solid fa-pencil"></i>Edit
             </a>
+
+            <form method="POST" action="/listings/{{$listing->id}}">
+                @csrf
+                @method('DELETE')
+                <button class="text-red-500"><i class="fa-solid fa-trash"></i>Delete</button>
+            </form>
         </x-card>
     </div>
 @endsection

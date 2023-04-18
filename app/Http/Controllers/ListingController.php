@@ -53,7 +53,9 @@ class ListingController extends Controller
     }
 
     public function edit(Listing $listing) {
-        return view('listings.edit', ['listing' => $listing]);
+
+        $slug = Str::slug($listing->title);
+        return view('listings.edit', ['listing' => $listing, 'slug' => $slug]);
     }
 
     public function update(Request $request, Listing $listing) {
@@ -74,6 +76,11 @@ class ListingController extends Controller
 
         return back()->with('message', 'Content updated!');
 
+    }
+
+    public function destroy(Listing $listing) {
+        $listing->delete();
+        return redirect('/')->with('message', 'Content deleted!');
     }
 }
  
