@@ -4,7 +4,7 @@
         <h1 class="text-6xl font-bold uppercase text-white">
             Lara<span class="text-black">Store</span>
         </h1>
-        <p class="text-2xl text-gray-200 font-bold my-4">
+        <p class="text-2xl text-white font-bold my-4">
             Find and add interesting content
         </p>
         <div>
