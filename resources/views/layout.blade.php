@@ -32,6 +32,15 @@
                 <a href="/listing/manage" class="hover:text-red-600"><i class="fa-solid fa-gear"></i>
                     Manage Content</a>
             </li>
+
+            <li class="inline">
+                <form method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-door-closed"></i>Sign out
+                    </button>
+                </form>
+            </li>
             @else
             <li>
                 <a href="/register" class="hover:text-red-600"><i class="fa-solid fa-user-plus"></i> Sign up</a>
