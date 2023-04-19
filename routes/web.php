@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -27,3 +28,6 @@ Route::put('/listings/{listing}', [ListingController::class, 'update'])->name('u
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->name('delete-listing');
 
 Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
+
+//Auth routing
+Route::get('/register', [UserController::class, 'create'])->name('create-user');
