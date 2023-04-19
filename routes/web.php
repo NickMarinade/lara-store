@@ -33,4 +33,7 @@ Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])-
 Route::get('/register', [UserController::class, 'create'])->name('create-user');
 Route::post('/users', [UserController::class, 'store'])->name('store-user');
 
+Route::get('/login', [UserController::class, 'login'])->name('show-login');
+Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate-user');
+
 Route::post('/logout', [UserController::class, 'logout'])->name('logout-user');

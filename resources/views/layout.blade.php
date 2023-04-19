@@ -47,7 +47,7 @@
             </li>
             <li>
                 <a href="/login" class="hover:text-red-600"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Log in</a>
+                    Sign in</a>
             </li>
             @endauth
         </ul>
