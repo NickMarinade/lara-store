@@ -31,3 +31,4 @@ Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])-
 
 //Auth routing
 Route::get('/register', [UserController::class, 'create'])->name('create-user');
+Route::post('/users', [UserController::class, 'store'])->name('store-user');
