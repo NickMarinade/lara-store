@@ -25,6 +25,7 @@ Route::post('/listings', [ListingController::class, 'store'])->middleware('auth'
 
 Route::get('/listings/{listing}/edit/{slug}', [ListingController::class, 'edit'])->middleware('auth')->name('edit-listing');
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth')->name('update-listing');
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth')->name('manage-listing');
 
 Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth')->name('delete-listing');
 

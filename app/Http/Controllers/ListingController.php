@@ -84,5 +84,9 @@ class ListingController extends Controller
         $listing->delete();
         return redirect('/')->with('message', 'Content deleted!');
     }
+
+    public function manage() {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+    }
 }
  
