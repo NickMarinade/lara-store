@@ -30,7 +30,7 @@
             </li>
             <li>
                 <a href="/listing/manage" class="hover:text-red-600"><i class="fa-solid fa-gear"></i>
-                    Manage Content</a>
+                    My Content</a>
             </li>
 
             <li class="inline">
