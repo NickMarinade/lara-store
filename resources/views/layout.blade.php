@@ -36,7 +36,7 @@
             <li class="inline">
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit">
+                    <button type="submit" class="hover:text-red-600">
                         <i class="fa-solid fa-door-closed"></i>Sign out
                     </button>
                 </form>

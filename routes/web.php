@@ -17,23 +17,24 @@ use Illuminate\Support\Str;
 |
 */
 
+//Content routing
 Route::get('/', [ListingController::class, 'showAll'])->name('home');
 
-Route::get('/listings/create', [ListingController::class, 'create'])->name('create-listing');
-Route::post('/listings', [ListingController::class, 'store'])->name('store-listing');
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth')->name('create-listing');
+Route::post('/listings', [ListingController::class, 'store'])->middleware('auth')->name('store-listing');
 
-Route::get('/listings/{listing}/edit/{slug}', [ListingController::class, 'edit'])->name('edit-listing');
-Route::put('/listings/{listing}', [ListingController::class, 'update'])->name('update-listing');
+Route::get('/listings/{listing}/edit/{slug}', [ListingController::class, 'edit'])->middleware('auth')->name('edit-listing');
+Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth')->name('update-listing');
 
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->name('delete-listing');
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth')->name('delete-listing');
 
 Route::get('/listings/{listing}/{slug}', [ListingController::class, 'showOne'])->name('listing');
 
 //Auth routing
-Route::get('/register', [UserController::class, 'create'])->name('create-user');
+Route::get('/register', [UserController::class, 'create'])->middleware('guest')->name('create-user');
 Route::post('/users', [UserController::class, 'store'])->name('store-user');
 
-Route::get('/login', [UserController::class, 'login'])->name('show-login');
+Route::get('/login', [UserController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/users/authenticate', [UserController::class, 'authenticate'])->name('authenticate-user');
 
-Route::post('/logout', [UserController::class, 'logout'])->name('logout-user');
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout-user');
