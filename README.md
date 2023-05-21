@@ -1,6 +1,6 @@
 ## Links
 
-[App Link (Project is not hosted live yet)]().
+[App Link](https://www.marenich-dev.com/).
 
 # Lara Store
 
